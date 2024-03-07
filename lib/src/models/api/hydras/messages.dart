@@ -11,6 +11,7 @@ class HydraMessages with _$HydraMessages {
   const factory HydraMessages({
     /// The messages in hydra:member
     @JsonKey(name: 'hydra:member') required List<Message> messages,
+
     /// The total number of items.
     @JsonKey(name: 'hydra:totalItems') required int totalItems,
   }) = _HydraMessages;

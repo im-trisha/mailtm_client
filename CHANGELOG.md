@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.0.1
+ - It seems that the pub.dev doesn't want the static analysis to pass, this should fix it
+
 ## 3.0.0
  - Complete code refactoring. Project shouldn't have any more issues
  - Complete test suite refactoring.

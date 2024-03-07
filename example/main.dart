@@ -7,7 +7,7 @@ void main() async {
   /// user.messages() can also be listened to!
   final message = await user.messages().first;
   final messages = await user.allMessages().toList();
-  print(message == messages.first);
-  
+  print(message == messages.first.first);
+
   await user.delete();
 }
