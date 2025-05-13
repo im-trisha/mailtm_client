@@ -20,7 +20,7 @@ Dio _buildDioClient() {
 /// The mailtm rest api client.
 abstract class MailTmService {
   // ignore: unused_element
-  factory MailTmService._(Dio dio, {String baseUrl}) = _MailTmService;
+  factory MailTmService._(Dio dio) = _MailTmService;
 
   /// Gets a domains list from its page
   @GET('/domains')

@@ -4,7 +4,7 @@ part of '../../models.dart';
 ///
 /// This class contains an user's account, its password and its access token
 @unfreezed
-class AuthenticatedUser with _$AuthenticatedUser {
+sealed class AuthenticatedUser with _$AuthenticatedUser {
   AuthenticatedUser._();
 
   /// Constructor for [AuthenticatedUser]. `MUST NOT` be used manually

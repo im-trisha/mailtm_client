@@ -2,7 +2,7 @@ part of '../../models.dart';
 
 /// Represents a [Domain] object as is, directly provided from mailtm API
 @freezed
-class Domain with _$Domain {
+sealed class Domain with _$Domain {
   /// [Domain] constructor. `MUST NOT` be used manually
   /// Use [MailTm] and [AuthorizedUser]
   const factory Domain({

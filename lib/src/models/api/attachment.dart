@@ -2,7 +2,7 @@ part of '../../models.dart';
 
 /// Represents an Attachment object as is, directly provided from mailtm API
 @freezed
-class Attachment with _$Attachment {
+sealed class Attachment with _$Attachment {
   const Attachment._();
 
   /// Attachment constructor. `MUST NOT` be used manually

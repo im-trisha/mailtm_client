@@ -2,7 +2,7 @@ part of '../../../models.dart';
 
 /// Represents a [HydraDomains] object as is, directly provided from mailtm API
 @freezed
-class HydraDomains with _$HydraDomains {
+sealed class HydraDomains with _$HydraDomains {
   /// The max number of items in [domains]
   static const hydraMax = 30;
 

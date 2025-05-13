@@ -2,7 +2,7 @@ part of '../../models.dart';
 
 /// Represents an Account object as is, directly provided from mailtm API
 @freezed
-class Account with _$Account {
+sealed class Account with _$Account {
   /// Account constructor. `MUST NOT` be used manually
   /// Use [MailTm] and [AuthorizedUser]
   const factory Account({

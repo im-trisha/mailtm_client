@@ -1,6 +1,6 @@
 /// This package is a simple but complete mail.tm api wrapper
 /// You can use this to save and manage your accounts, as well read all your temporary emails.
-library mailtm_client;
+library;
 
 export 'src/models.dart'
     show

@@ -2,7 +2,7 @@ part of '../../models.dart';
 
 /// Represents a [MessageSource] object as is, directly provided from mailtm API
 @freezed
-class MessageSource with _$MessageSource {
+sealed class MessageSource with _$MessageSource {
   /// [MessageSource] constructor. `MUST NOT` be used manually
   /// Use [MailTm] and [AuthorizedUser]
   const factory MessageSource({
