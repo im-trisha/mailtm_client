@@ -3,7 +3,7 @@ part of '../../../models.dart';
 /// Represents a [HydraMessages] object as is, directly provided from mailtm API
 @freezed
 @JsonSerializable()
-sealed class HydraMessages with _$HydraMessages {
+class HydraMessages with _$HydraMessages {
   /// The max number of items in [messages]
   static const hydraMax = 30;
 

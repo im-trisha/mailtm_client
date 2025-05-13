@@ -1,12 +1,15 @@
+// ignore_for_file: unused_element_parameter
+
 part of '../requests.dart';
 
 Dio _buildDioClient() {
-  final client = Dio()
-    ..options.contentType = 'application/ld+json'
-    ..interceptors.add(_ErrorInterceptor())
-    ..interceptors.add(_StatusAsResponse())
-    ..interceptors.add(_BearerTokenInterceptor())
-    ..options.validateStatus = (int? status) => (status ?? 400) < 500;
+  final client =
+      Dio()
+        ..options.contentType = 'application/ld+json'
+        ..interceptors.add(_ErrorInterceptor())
+        ..interceptors.add(_StatusAsResponse())
+        ..interceptors.add(_BearerTokenInterceptor())
+        ..options.validateStatus = (int? status) => (status ?? 400) < 500;
 
   client.interceptors.add(
     RetryInterceptor(dio: client, retryableExtraStatuses: {0}),
@@ -16,30 +19,25 @@ Dio _buildDioClient() {
 }
 
 @RestApi(baseUrl: 'https://api.mail.tm')
-
 /// The mailtm rest api client.
 abstract class MailTmService {
-  // ignore: unused_element
-  factory MailTmService._(Dio dio) = _MailTmService;
+  factory MailTmService._(
+    Dio dio, {
+    String? baseUrl,
+    ParseErrorLogger? errorLogger,
+  }) = _MailTmService;
 
   /// Gets a domains list from its page
   @GET('/domains')
-  Future<HydraDomains> getDomains(
-    @Query('page') int page,
-  );
+  Future<HydraDomains> getDomains(@Query('page') int page);
 
   /// Gets domain from its id
   @GET('/domains/{id}')
-  Future<Domain> getDomain(
-    @Path() String id,
-  );
+  Future<Domain> getDomain(@Path() String id);
 
   /// Get a JWT authentication token
   @POST('/token')
-  Future<Token> getToken(
-    @Field() String address,
-    @Field() String password,
-  );
+  Future<Token> getToken(@Field() String address, @Field() String password);
 
   /// Creates an account
   @POST('/accounts')
@@ -65,9 +63,7 @@ abstract class MailTmService {
 
   /// Gets an account while being authenticated
   @GET('/me')
-  Future<Account> me(
-    @Header('Authorization') String token,
-  );
+  Future<Account> me(@Header('Authorization') String token);
 
   /// Gets a messages list from its page
   @GET('/messages')
@@ -103,7 +99,7 @@ abstract class MailTmService {
   @PATCH('/messages/{id}')
   @Headers({
     'StatusAsResponse': true,
-    'Content-Type': 'application/merge-patch+json'
+    'Content-Type': 'application/merge-patch+json',
   })
   Future<bool> readMessage(
     @Path() String id,

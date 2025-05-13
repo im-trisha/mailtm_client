@@ -3,7 +3,7 @@ part of '../../models.dart';
 /// Represents an Attachment object as is, directly provided from mailtm API
 @freezed
 @JsonSerializable()
-sealed class Attachment with _$Attachment {
+class Attachment with _$Attachment {
   /// Attachment constructor. `MUST NOT` be used manually
   /// Use [MailTm] and [AuthorizedUser]
   const Attachment({

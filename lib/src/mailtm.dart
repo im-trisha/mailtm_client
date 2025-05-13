@@ -30,9 +30,7 @@ class MailTm {
 
   /// Loads cached users.
   static void loadUsers(Map<String, Map<String, Object?>> users) =>
-      _auths = users.map(
-        (k, v) => MapEntry(k, AuthenticatedUser.fromJson(v)),
-      );
+      _auths = users.map((k, v) => MapEntry(k, AuthenticatedUser.fromJson(v)));
 
   /// Caches and gets every domain that the API provides
   static FutureOr<List<Domain>> domains() async {
@@ -60,13 +58,15 @@ class MailTm {
     Domain? domain,
     int randomCharsLength = 16,
   }) async {
-    username = username == null || username.isEmpty
-        ? randomString(randomCharsLength)
-        : username;
+    username =
+        username == null || username.isEmpty
+            ? randomString(randomCharsLength)
+            : username;
 
-    password = password == null || password.isEmpty
-        ? randomString(randomCharsLength)
-        : password;
+    password =
+        password == null || password.isEmpty
+            ? randomString(randomCharsLength)
+            : password;
 
     domain ??= (await domains()).first;
 
