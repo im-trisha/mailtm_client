@@ -15,14 +15,16 @@ class _ErrorInterceptor extends Interceptor {
     Response<dynamic> response,
     ResponseInterceptorHandler handler,
   ) {
-    if (_errorMessages.keys.toList().contains(response.statusCode)) {
-      handler.reject(DioException(
+    final error = _errorMessages[response.statusCode];
+
+    if (error == null) return handler.next(response);
+
+    handler.reject(
+      DioException(
         requestOptions: response.requestOptions,
         response: response,
-        message: _errorMessages[response.statusCode],
-      ));
-    }
-
-    handler.next(response);
+        message: error,
+      ),
+    );
   }
 }

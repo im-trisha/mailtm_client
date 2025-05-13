@@ -2,38 +2,67 @@ part of '../../models.dart';
 
 /// Represents an Attachment object as is, directly provided from mailtm API
 @freezed
+@JsonSerializable()
 sealed class Attachment with _$Attachment {
-  const Attachment._();
-
   /// Attachment constructor. `MUST NOT` be used manually
   /// Use [MailTm] and [AuthorizedUser]
-  const factory Attachment({
-    /// The attachment id.
-    required String id,
+  const Attachment({
+    required this.id,
 
-    /// The attachment filename.
-    @JsonKey(name: 'filename') @Default('') String name,
+    this.name = '',
 
-    /// The attachment contentType.
-    @JsonKey(name: 'contentType') @Default('') String type,
+    this.type = '',
 
-    /// The attachment disposition.
-    required String disposition,
+    required this.disposition,
 
-    /// The attachment transferEncoding.
-    @JsonKey(name: 'transferEncoding') @Default('') String encoding,
+    this.encoding = '',
 
-    /// The attachment related flag.
-    required bool related,
+    required this.related,
 
-    /// The attachment size.
-    required int size,
+    required this.size,
 
-    /// The attachment downloadUrl.
-    required String downloadUrl,
-  }) = _Attachment;
+    required this.downloadUrl,
+  });
 
-  /// Attachment jsonizer. Allows freezed to add a from/toJson
+  /// The attachment id.
+  @override
+  final String id;
+
+  /// The attachment filename.
+  @override
+  @JsonKey(name: 'filename')
+  final String name;
+
+  /// The attachment contentType.
+  @override
+  @JsonKey(name: 'contentType')
+  final String type;
+
+  /// The attachment disposition.
+  @override
+  final String disposition;
+
+  /// The attachment transferEncoding.
+  @override
+  @JsonKey(name: 'transferEncoding')
+  final String encoding;
+
+  /// The attachment related flag.
+  @override
+  final bool related;
+
+  /// The attachment size.
+  @override
+  final int size;
+
+  /// The attachment downloadUrl.
+  @override
+  final String downloadUrl;
+
+  /// [Attachment] fromJson.
   factory Attachment.fromJson(Map<String, Object?> json) =>
       _$AttachmentFromJson(json);
+
+  /// [Attachment] toJson.
+  Map<String, Object?> toJson() => _$AttachmentToJson(this);
 }
