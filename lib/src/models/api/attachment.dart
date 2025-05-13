@@ -11,19 +11,19 @@ class Attachment with _$Attachment {
     /// The attachment id.
     required String id,
 
-    /// The attachment name.
-    @Default('') String name,
+    /// The attachment filename.
+    @JsonKey(name: 'filename') @Default('') String name,
 
     /// The attachment contentType.
-    @Default('') String type,
+    @JsonKey(name: 'contentType') @Default('') String type,
 
     /// The attachment disposition.
     required String disposition,
 
     /// The attachment transferEncoding.
-    @Default('') encoding,
+    @JsonKey(name: 'transferEncoding') @Default('') String encoding,
 
-    /// Undocumented, seems to always be true
+    /// The attachment related flag.
     required bool related,
 
     /// The attachment size.
